@@ -4,6 +4,7 @@ from django.db import connections
 from django.db.utils import OperationalError
 from django.core.management.base import BaseCommand
 
+
 class Command(BaseCommand):
     '''Django Command to pause execution until DB is available'''
     def handle(self, *args, **options):

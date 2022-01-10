@@ -1,7 +1,9 @@
 import os
 from django.db import models
-from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
+from django.contrib.auth.models import AbstractBaseUser, \
+    BaseUserManager, PermissionsMixin
 from django.conf import settings
+
 
 class UserManager(BaseUserManager):
 
@@ -24,8 +26,10 @@ class UserManager(BaseUserManager):
 
         return user
 
+
 class User(AbstractBaseUser, PermissionsMixin):
-        """Customized user model that supports using email instead of username """
+        """Customized user model that
+        supports using email instead of username """
         email = models.EmailField(max_length=255, unique=True)
         name = models.CharField(max_length=255)
         is_active = models.BooleanField(default=True)
