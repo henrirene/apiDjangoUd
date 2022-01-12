@@ -35,7 +35,7 @@ def sample_recipe(user, **params):
     defaults = {
         'title': 'Sample recipe',
         'time_minutes': 10,
-        'price': 5.00
+        'price': 5.00,
     }
     defaults.update(params)
 
@@ -129,7 +129,7 @@ class PrivateRecipeApiTests(TestCase):
             'title': 'Avocado lime cheescake',
             'tags': [tag1.id, tag2.id],
             'time_minutes': 60,
-            'price': 20
+            'price': 20.00
         }
         res = self.client.post(RECIPES_URL, payload)
 
@@ -150,6 +150,7 @@ class PrivateRecipeApiTests(TestCase):
             'time_minutes': 20,
             'price': 7.00
         }
+        
         res = self.client.post(RECIPES_URL, payload)
 
         self.assertEqual(res.status_code, status.HTTP_201_CREATED)
